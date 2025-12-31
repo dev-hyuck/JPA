@@ -1,6 +1,9 @@
 <img width="896" height="406" alt="image" src="https://github.com/user-attachments/assets/58db27ec-6bf2-4e50-988d-63bc81259873" />
+
 전체 조회로 id 1번 ~ 3번을 호출
-<img width="845" height="367" alt="image" src="https://github.com/user-attachments/assets/d7253244-d831-48ea-b8ee-77c9a98c82c5" />
+
+<img width="896" height="406" alt="image" src="https://github.com/user-attachments/assets/d7253244-d831-48ea-b8ee-77c9a98c82c5" />
+
 전체 조회로 id 3번 삭제 되었음 
 
 
