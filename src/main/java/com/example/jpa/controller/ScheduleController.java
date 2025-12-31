@@ -1,9 +1,6 @@
 package com.example.jpa.controller;
 
-import com.example.jpa.dto.ScheduleUpdateResponse;
-import com.example.jpa.dto.ScheduleCreateRequest;
-import com.example.jpa.dto.ScheduleCreateResponse;
-import com.example.jpa.dto.ScheduleGetResponse;
+import com.example.jpa.dto.*;
 import com.example.jpa.service.ScheduleService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -41,7 +38,7 @@ public class ScheduleController {
     @PutMapping("/schedules/{schedulesId}")
     public ResponseEntity<ScheduleUpdateResponse> update (
             @PathVariable Long schedulesId,
-            @RequestBody ScheduleCreateRequest request
+            @RequestBody ScheduleUpdateRequest request
     ) {
         return ResponseEntity.status(HttpStatus.OK).body(scheduleService.update(schedulesId, request));
     }

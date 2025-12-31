@@ -1,10 +1,7 @@
 package com.example.jpa.service;
 
 
-import com.example.jpa.dto.ScheduleUpdateResponse;
-import com.example.jpa.dto.ScheduleCreateRequest;
-import com.example.jpa.dto.ScheduleCreateResponse;
-import com.example.jpa.dto.ScheduleGetResponse;
+import com.example.jpa.dto.*;
 import com.example.jpa.entity.Schedule;
 import com.example.jpa.repository.ScheduleRepository;
 import lombok.RequiredArgsConstructor;
@@ -83,7 +80,7 @@ public class ScheduleService {
     }
 
     @Transactional
-    public ScheduleUpdateResponse update(Long schedulesId, ScheduleCreateRequest request) {
+    public ScheduleUpdateResponse update(Long schedulesId, ScheduleUpdateRequest request) {
         Schedule schedule = scheduleRepository.findById(schedulesId).orElseThrow(
                 () -> new IllegalArgumentException("없는 멤버 입니다.")
         );
