@@ -1,13 +1,11 @@
 package com.example.jpa.service;
 
-
 import com.example.jpa.dto.*;
 import com.example.jpa.entity.Schedule;
 import com.example.jpa.repository.ScheduleRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,7 +15,6 @@ import java.util.List;
 public class ScheduleService {
 
     private final ScheduleRepository scheduleRepository;
-
 
     @Transactional
     public ScheduleCreateResponse save(ScheduleCreateRequest request) {
@@ -36,9 +33,7 @@ public class ScheduleService {
                 savedschedule.getPassword(),
                 savedschedule.getCreatedAt(),
                 savedschedule.getModifiedAt()
-
         );
-
     }
 
     @Transactional (readOnly = true)
@@ -52,7 +47,6 @@ public class ScheduleService {
                     schedule.getTitle(),
                     schedule.getContent(),
                     schedule.getAuthor(),
-                    schedule.getPassword(),
                     schedule.getCreatedAt(),
                     schedule.getModifiedAt()
             );
@@ -67,16 +61,14 @@ public class ScheduleService {
                 () -> new IllegalArgumentException("없는 멤버 입니다.")
         );
 
-        ScheduleGetResponse schedules = new ScheduleGetResponse(
+        return new ScheduleGetResponse(
                 schedule.getId(),
                 schedule.getTitle(),
                 schedule.getContent(),
                 schedule.getAuthor(),
-                schedule.getPassword(),
                 schedule.getCreatedAt(),
                 schedule.getModifiedAt()
         );
-        return schedules;
     }
 
     @Transactional

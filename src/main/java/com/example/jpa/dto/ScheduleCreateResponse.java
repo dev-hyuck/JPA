@@ -16,8 +16,8 @@ public class ScheduleCreateResponse {
     private final LocalDateTime createAt;
     private final LocalDateTime modifiedAt;
 
-
     public ScheduleCreateResponse(long id, String title, String content, String author, String password, LocalDateTime createAt, LocalDateTime modifiedAt) {
+
         this.id = id;
         this.title = title;
         this.content = content;
