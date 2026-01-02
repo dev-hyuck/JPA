@@ -104,5 +104,4 @@ public class ScheduleService {
         scheduleRepository.deleteById(schedulesId);
 
     }
-
 }

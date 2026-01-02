@@ -1,7 +1,6 @@
 package com.example.jpa.controller;
 
 import com.example.jpa.dto.*;
-import com.example.jpa.entity.Schedule;
 import com.example.jpa.service.ScheduleService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;

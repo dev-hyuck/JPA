@@ -6,21 +6,23 @@ import java.time.LocalDateTime;
 
 @Getter
 
-public class ScheduleUpdateResponse {
+public class CommentCreateResponse {
+
     private final long id;
-    private final String title;
     private final String content;
     private final String author;
     private final String password;
+    private final String scheduleTitle;
     private final LocalDateTime createAt;
     private final LocalDateTime modifiedAt;
 
-    public ScheduleUpdateResponse(long id, String title, String content, String author, String password, LocalDateTime createAt, LocalDateTime modifiedAt) {
+    public CommentCreateResponse(long id, String content, String author, String password, String scheduleTitle, LocalDateTime createAt, LocalDateTime modifiedAt) {
+
         this.id = id;
-        this.title = title;
         this.content = content;
         this.author = author;
         this.password = password;
+        this.scheduleTitle = scheduleTitle;
         this.createAt = createAt;
         this.modifiedAt = modifiedAt;
     }
