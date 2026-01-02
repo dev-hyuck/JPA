@@ -51,7 +51,13 @@ public class CommentService {
 
     @Transactional
     public List<CommentGetResponse> findAll(Long scheduleId, String author) {
-        List<Comment> comment;
+        List<Comment> comments;
+
+        if (author != null) {
+            comments = commentRepository.findByScheduleIdAndAuthor(scheduleId, author);
+        } else {
+            comments = commentRepository.findByScheduleId(scheduleId);
+        }
         List<CommentGetResponse> responses = new ArrayList<>();
 
         for (Comment comment : comments) {
