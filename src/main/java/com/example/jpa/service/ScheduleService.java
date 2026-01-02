@@ -37,10 +37,17 @@ public class ScheduleService {
     }
 
     @Transactional (readOnly = true)
-    public  List<ScheduleGetResponse> findAll() {
-        scheduleRepository.findAll();
-        List<Schedule> schedules = scheduleRepository.findAll();
+    public  List<ScheduleGetResponse> findAll(String author) {
+//      scheduleRepository.findAll(); // 불필요한 중복 호출 사용 주석 처리
+        List<Schedule> schedules;
         List<ScheduleGetResponse> dtos = new ArrayList<>();
+
+        if ( author != null && !author.isEmpty()) {
+            schedules = scheduleRepository.findAllByAuthorOrderByModifiedAtDesc(author);
+        } else {
+            schedules = scheduleRepository.findAllByOrderByModifiedAtDesc();
+        }
+
         for (Schedule schedule : schedules) {
             ScheduleGetResponse scheduleGetResponse = new ScheduleGetResponse(
                     schedule.getId(),

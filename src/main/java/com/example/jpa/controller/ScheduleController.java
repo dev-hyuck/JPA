@@ -1,6 +1,7 @@
 package com.example.jpa.controller;
 
 import com.example.jpa.dto.*;
+import com.example.jpa.entity.Schedule;
 import com.example.jpa.service.ScheduleService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -25,8 +26,11 @@ public class ScheduleController {
     }
 
     @GetMapping("/schedules")
-    public ResponseEntity<List<ScheduleGetResponse>> findAll() {
-        return ResponseEntity.status(HttpStatus.OK).body(scheduleService.findAll());
+    public ResponseEntity<List<ScheduleGetResponse>> findAll(
+            @RequestParam(required = false) String author
+    ) {
+        List<ScheduleGetResponse> schedules = scheduleService.findAll(author);
+        return ResponseEntity.status(HttpStatus.OK).body(schedules); // 이러면 get schedules 전체 일정 조회 가능
 
     }
 
